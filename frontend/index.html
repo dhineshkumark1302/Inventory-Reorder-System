@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Reorder Alert System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory Reorder Alert System</h1>
+        <form id="productForm">
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <input type="text" id="productId" placeholder="Product ID" required>
+            <input type="number" id="stockQuantity" placeholder="Stock Quantity" required>
+            <input type="number" id="reorderLevel" placeholder="Reorder Level" required>
+            <input type="email" id="supplierEmail" placeholder="Supplier Email" required>
+            <button type="submit">Add Product</button>
+        </form>
+        <h2>Product Inventory</h2>
+        <table id="inventoryTable">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product ID</th>
+                    <th>Stock Quantity</th>
+                    <th>Reorder Level</th>
+                    <th>Supplier Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product rows will be dynamically added here -->
+            </tbody>
+        </table>
+        <div id="alertMessage" class="alert"></div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
