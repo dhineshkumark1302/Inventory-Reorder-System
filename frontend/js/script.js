@@ -6,14 +6,14 @@ function addProduct() {
     const supplierEmail = document.getElementById('supplierEmail').value;
 
     const productData = {
-        name: productName,
-        id: productId,
-        quantity: stockQuantity,
+        productName: productName,
+        productId: productId,
+        stockQuantity: Number(stockQuantity),
         reorderLevel: reorderLevel,
         supplierEmail: supplierEmail
     };
 
-    fetch('/api/products', {
+    fetch('/api/products/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -40,16 +40,16 @@ function displayInventory() {
         products.forEach(product => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${product.name}</td>
-                <td>${product.id}</td>
-                <td>${product.quantity}</td>
+                <td>${product.productName}</td>
+                <td>${product.productId}</td>
+                <td>${product.stockQuantity}</td>
                 <td>${product.reorderLevel}</td>
                 <td>${product.supplierEmail}</td>
             `;
             inventoryTable.appendChild(row);
 
-            if (product.quantity < product.reorderLevel) {
-                alert(`Alert: ${product.name} is below the reorder level!`);
+            if (product.stockQuantity < product.reorderLevel) {
+                alert(`Alert: ${product.productName} is below the reorder level!`);
                 console.log(`Reorder notification sent to: ${product.supplierEmail}`);
             }
         });
